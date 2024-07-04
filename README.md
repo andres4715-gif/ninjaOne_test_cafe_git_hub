@@ -121,13 +121,10 @@ Update .eslintrc.json:
 ```
 
 # TO DO:
+- [ ] Run the initial base script
 
-- [ ] Clone and run UI Repository 
-- [ ] Clone and run API Repository
-- [ ] Solve node issue error to run the UI app
-- [ ] Create the TestCafe framework working with Typescript.
-- [ ] Run the initial test checking the URL
-
-
- 
-
+# DONE
+- [X] Clone and run UI Repository 
+- [X] Clone and run API Repository
+- [X] Solve node issue error to run the UI app
+- [X] Create the TestCafe framework working with Typescript

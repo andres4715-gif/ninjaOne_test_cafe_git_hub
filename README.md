@@ -135,10 +135,8 @@ Update .eslintrc.json:
 # TO DO:
 
 - [ ] Check and run the reports
-- [ ] Setup the url from .env file
 - [ ] Check the final env variables and clean it
-- [ ] Create hooks to run the scripts 
-- [ ] Setup tsc --watch
+- [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
 
 # DONE
@@ -148,3 +146,8 @@ Update .eslintrc.json:
 - [X] Solve node issue error to run the UI app
 - [X] Create the TestCafe framework working with Typescript
 - [X] Readme file Documentation about TypeScript validation on the real time 
+- [X] Setup the url from .env file
+- [X] Setup tsc --watch
+- [X] Run the next scripts if the previous fails. 
+- [X] Remove .page()to whole list of test cases and add it in a global variable
+- [X] Manage logs

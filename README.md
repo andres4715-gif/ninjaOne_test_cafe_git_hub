@@ -30,10 +30,22 @@ To compile the TypeScript code, run:
 $ npm run build
 ```
 
-Run Tests
-To run the tests, use:
-
+## Run Tests
 ```shell
+- Quick execution: 
+$ npm run test
+
+- Run specific script: (Take in mind, you would need to add the JavaScript code from dist folder)
+
+* Example: 
+$ npx testcafe chrome dist/tests/exampleTest.js
+
+- Using tsc --watch real time TypeScript validation
+$ npm run watch
+
+- In another terminal tap run the test cases: 
+* Example: 
+$ npm run watch
 $ npm run test
 ```
 
@@ -122,10 +134,18 @@ Update .eslintrc.json:
 ```
 
 # TO DO:
-- [ ] Run the initial base script
+
+- [ ] Check and run the reports
+- [ ] Setup the url from .env file
+- [ ] Check the final env variables and clean it
+- [ ] Create hooks to run the scripts 
+- [ ] Setup tsc --watch
+- [ ] Remove the basic and demo initial script
 
 # DONE
+- [X] Run the initial base script
 - [X] Clone and run UI Repository 
 - [X] Clone and run API Repository
 - [X] Solve node issue error to run the UI app
 - [X] Create the TestCafe framework working with Typescript
+- [X] Readme file Documentation about TypeScript validation on the real time 

@@ -1,4 +1,7 @@
-# TestCafe TypeScript Framework
+![image](https://github.com/andres4715-gif/ninjaOne_test_cafe_git_hub/assets/69942140/7efc2255-3099-420f-8a46-042e00de376a)
+
+# TestCafe TypeScript API and UI Framework 
+
 
 This is a TestCafe automation testing framework using TypeScript. It is set up to compile TypeScript code to JavaScript and run tests in TestCafe. 
 
@@ -14,11 +17,9 @@ This is a TestCafe automation testing framework using TypeScript. It is set up t
 ## Setup
 
 1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/yourusername/testcafe-typescript-framework.git
-   cd testcafe-typescript-framework
-
    ```shell
+   $ git clone https://github.com/andres4715-gif/ninjaOne_test_cafe_git_hub.git
+   $ cd testcafe-typescript-framework
    $ npm install
    ```
 Usage

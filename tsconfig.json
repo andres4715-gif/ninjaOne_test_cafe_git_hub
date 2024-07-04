@@ -4,10 +4,10 @@
     "module": "commonjs",
     "lib": ["es6", "dom"],
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*", "setup.ts"],
   "exclude": ["node_modules"]
 }

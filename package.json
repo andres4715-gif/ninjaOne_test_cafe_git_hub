@@ -6,15 +6,21 @@
   "scripts": {
     "build": "tsc",
     "pretest": "npm run build",
-    "test": "testcafe chrome dist/tests/*.js"
+    "test": "testcafe chrome dist/tests/**/*.js",
+    "watch": "tsc --watch",
+    "dev": "concurrently \"npm run watch\" \"npm run test\""
   },
   "keywords": [],
   "author": "",
   "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
   "devDependencies": {
     "@types/node": "^20.14.9",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

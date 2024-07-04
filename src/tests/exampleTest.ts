@@ -1,7 +1,14 @@
-import examplePage from "../pages/examplePage";
+import { Selector } from "testcafe";
+import loginPage from "../pages/examplePage";
 
-fixture`Example Fixture`.page`https://the-internet.herokuapp.com/checkboxes`;
+// env variables destructuring
+const { URL, USERNAME, PASSWORD } = process.env;
 
-test("Example Test", async (t) => {
-  await t.expect(examplePage.exampleElement.exists).ok();
+fixture`Login Tests`.page(URL as string);
+
+test("User can log in with valid credentials", async (t) => {
+  await loginPage.login(USERNAME as string, PASSWORD as string);
+
+  const loggedInUser = Selector("#flash-messages");
+  await t.expect(loggedInUser.exists).ok();
 });

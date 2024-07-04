@@ -7,7 +7,8 @@ This is a TestCafe automation testing framework using TypeScript. It is set up t
 
 ## Project Structure
 
-![alt text](image.png)
+![image](https://github.com/andres4715-gif/ninjaOne_test_cafe_git_hub/assets/69942140/ad866940-b540-42c4-8ffe-25d895437f07)
+
 
 ## Prerequisites
 

@@ -88,6 +88,44 @@ export default new ExamplePage();
 
 ```
 
+# Reports: 
+> NPM PACKAGE:  "testcafe-reporter-html": "^1.4.6",
+
+To get the final execution report just run this npm script. 
+```shell
+$ npm run test
+```
+
+### Required Report configuration to get the testcafe-reporter-html Report
+```text
+--reporter spec,html:reports/test-report.html --screenshots path=reports/screenshots/$(date +%Y-%m-%d_%H-%M-%S),takeOnFails=true",
+```
+This specific script contains the testcafe-reporter-html complement to create a new report each execution and you can 
+see the test-report.html on this project folder: ./reports
+
+NOTE: Just open this file: reports/test-report.html using any available browser in your system. 
+
+Besides you would see the fail execution screenshots each fail execution in this folder: ./reports/screenshots
+___
+
+# Github Actions: 
+
+This TestCafe framework executes a github Action each push and pull request to master branch 
+
+* Setup: Check this file: .github/workflows/node.js.yml
+
+```YAML
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+```
+Besides is possible to download the final report on the Artifacts section after a success execution. 
+___
+
 Additional Configuration
 
 Linter (Optional)
@@ -129,7 +167,6 @@ Update .eslintrc.json:
     "plugin:prettier/recommended"
   ]
 }
-
 ```
 
 # TO DO:
@@ -138,8 +175,8 @@ Update .eslintrc.json:
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
 - [ ] Check the best practice to work with separate locators file
-- [ ] Create new readme version file adding documentation for reports
-- [ ] Create new readme version file adding documentation for github actions
+- [ ] Install npm package to handle logs
+- [ ] Create new readme version file adding documentation for logs
 
 
 # DONE
@@ -158,5 +195,7 @@ Update .eslintrc.json:
 - [X] github actions setup
 - [X] Fix scripts test name on the reports
 - [X] Verify the testcafe-reporter.ts functionality and remove it if needed
+- [X] Create new readme version file adding documentation for reports
+- [X] Create new readme version file adding documentation for github actions
 
 👍🏻👌

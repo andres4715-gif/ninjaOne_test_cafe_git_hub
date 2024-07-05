@@ -126,9 +126,37 @@ on:
 Besides is possible to download the final report on the Artifacts section after a success execution. 
 ___
 
-Additional Configuration
+# Logger: Winston Logging in Node.js
 
-Linter (Optional)
+
+> Winston  is the most popular logging library for Node.js. 
+>It aims to make logging more flexible and extensible by decoupling different aspects such as log levels, 
+>formatting, and storage so that each API is independent and many combinations are supported.
+
+*This TestCafe framework just applying the basic configuration for logger*
+
+Check this link for more information: [LInk](https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-winston-and-morgan-to-log-node-js-applications/)
+
+### PATH: 
+```text
+src/utils/logger.ts
+```
+
+### Common Logger Methods
+
+```javascript
+logger.info('This is an informational message');
+logger.error('This is an error message');
+logger.warn('This is a warning message');
+logger.debug('This is a debug message');
+logger.verbose('This is a verbose message');
+logger.silly('This is a silly message'); which are the most detailed and least critical.
+```
+___
+
+
+# Additional Configuration
+## Linter (Optional)
 To add ESLint for code linting, install the following packages:
 
 ```shell
@@ -175,11 +203,8 @@ Update .eslintrc.json:
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
 - [ ] Check the best practice to work with separate locators file
-- [ ] Install npm package to handle logs
-- [ ] Create new readme version file adding documentation for logs
 
-
-# DONE
+# FRAMEWORK TASK DONE
 - [X] Run the initial base script
 - [X] Clone and run UI Repository 
 - [X] Clone and run API Repository
@@ -197,5 +222,7 @@ Update .eslintrc.json:
 - [X] Verify the testcafe-reporter.ts functionality and remove it if needed
 - [X] Create new readme version file adding documentation for reports
 - [X] Create new readme version file adding documentation for github actions
+- [X] Install npm package to handle logs
+- [X] Create new readme version file adding documentation for logs
 
-👍🏻👌
+# SCRIPTS TASK DONE

@@ -16,7 +16,8 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "testcafe-reporter-spec": "^2.2.0"
+    "testcafe-reporter-spec": "^2.2.0",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",

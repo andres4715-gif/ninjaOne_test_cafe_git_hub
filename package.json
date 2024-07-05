@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "pretest": "npm run build",
-    "test": "testcafe chrome dist/src/tests/**/*.js --reporter spec",
+    "test": "testcafe chrome src/tests/**/*.ts --reporter spec,html:reports/test-report.html --screenshots path=reports/screenshots/$(date +%Y-%m-%d_%H-%M-%S),takeOnFails=true",
     "watch": "tsc --watch",
     "dev": "concurrently \"npm run watch\" \"npm run test\""
   },
@@ -27,6 +27,7 @@
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.3.2",
     "testcafe": "^3.6.1",
+    "testcafe-reporter-html": "^1.4.6",
     "typescript": "^5.5.2"
   }
 }

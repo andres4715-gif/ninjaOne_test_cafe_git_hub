@@ -139,6 +139,8 @@ Update .eslintrc.json:
 - [ ] Remove the basic and demo initial script
 - [ ] Fix scripts test name on the reports
 - [ ] Check the best practice to work with separate locators file
+- [ ] Create new readme version file adding documentation for reports
+- [ ] Create new readme version file adding documentation for github actions
 
 # DONE
 - [X] Run the initial base script

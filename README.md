@@ -159,4 +159,4 @@ Update .eslintrc.json:
 - [X] Fix scripts test name on the reports
 - [X] Verify the testcafe-reporter.ts functionality and remove it if needed
 
-👌
+👍🏻👌

@@ -7,6 +7,7 @@
     "build": "tsc",
     "pretest": "npm run build",
     "test": "testcafe chrome src/tests/**/*.ts --reporter spec,html:reports/test-report.html --screenshots path=reports/screenshots/$(date +%Y-%m-%d_%H-%M-%S),takeOnFails=true",
+    "test_github_actions": "testcafe 'chrome:headless' src/tests/**/*.ts --reporter list,html:reports/test-report.html --screenshots path=reports/screenshots/$(date +%Y-%m-%d_%H-%M-%S),takeOnFails=true",
     "watch": "tsc --watch",
     "dev": "concurrently \"npm run watch\" \"npm run test\""
   },

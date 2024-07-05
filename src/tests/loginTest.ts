@@ -1,6 +1,6 @@
 import "../globalSetup";
 import { Selector } from "testcafe";
-import loginPage from "../pages/examplePage";
+import loginPage from "../pages/loginTestPage";
 import { generateRandomString } from "../common/utilities/helpers";
 
 // env variables destructuring

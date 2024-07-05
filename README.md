@@ -137,8 +137,8 @@ Update .eslintrc.json:
 - [ ] Check the final env variables and clean it
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
-- [ ] github actions setup
 - [ ] Fix scripts test name on the reports
+- [ ] Check the best practice to work with separate locators file
 
 # DONE
 - [X] Run the initial base script
@@ -153,3 +153,4 @@ Update .eslintrc.json:
 - [X] Remove .page()to whole list of test cases and add it in a global variable
 - [X] Manage logs
 - [X] Check and run the reports
+- [X] github actions setup

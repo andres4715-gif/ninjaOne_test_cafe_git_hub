@@ -1,10 +1,12 @@
-import "../globalSetup";
+import "../utils/setup";
 import { Selector } from "testcafe";
 import loginPage from "../pages/loginTestPage";
 import { generateRandomString } from "../common/utilities/helpers";
 
 // env variables destructuring
-const { USERNAME, PASSWORD } = process.env;
+const { URL, USERNAME, PASSWORD } = process.env;
+
+fixture`Simple login authentication`.page(URL as string);
 
 test("User can log in with valid credentials", async (t) => {
   await loginPage.login(USERNAME as string, PASSWORD as string);

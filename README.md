@@ -137,7 +137,6 @@ Update .eslintrc.json:
 - [ ] Check the final env variables and clean it
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
-- [ ] Fix scripts test name on the reports
 - [ ] Check the best practice to work with separate locators file
 - [ ] Create new readme version file adding documentation for reports
 - [ ] Create new readme version file adding documentation for github actions
@@ -156,3 +155,5 @@ Update .eslintrc.json:
 - [X] Manage logs
 - [X] Check and run the reports
 - [X] github actions setup
+- [X] Fix scripts test name on the reports
+- [X] Verify the testcafe-reporter.ts functionality and remove it if needed

@@ -1,6 +1,6 @@
 import "../utils/setup";
 import logger from "../utils/logger";
-import { Selector } from "testcafe";
+import loginSelectors from "../selectors/loginSelectors";
 import loginPage from "../pages/loginTestPage";
 import { generateRandomString } from "../common/utilities/helpers";
 
@@ -13,6 +13,6 @@ test("User can log in with valid credentials", async (t) => {
   await loginPage.login(USERNAME as string, PASSWORD as string);
   const randomString = generateRandomString(10);
   logger.info("--- The final random string:", randomString);
-  const loggedInUser = Selector("#flash-messages");
+  const loggedInUser = loginSelectors.message_after_login;
   await t.expect(loggedInUser.exists).ok();
 });

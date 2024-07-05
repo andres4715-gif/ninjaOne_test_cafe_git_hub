@@ -202,7 +202,6 @@ Update .eslintrc.json:
 - [ ] Check the final env variables and clean it
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
-- [ ] Check the best practice to work with separate locators file
 
 # FRAMEWORK TASK DONE
 - [X] Run the initial base script
@@ -226,3 +225,4 @@ Update .eslintrc.json:
 - [X] Create new readme version file adding documentation for logs
 
 # SCRIPTS TASK DONE
+- [X] Check the best practice to work with separate locators file

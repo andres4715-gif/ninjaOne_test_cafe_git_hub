@@ -17,16 +17,20 @@ export const generateRandomString = (length: number): string => {
 };
 
 /**
- * Logs the provided API response data as a JSON string.
+ * Logs the provided API response data as a JSON string with the endpoint.
  *
- * This function takes an object, converts it to a pretty-printed JSON string,
- * and logs it using the `logger.info` method.
+ * This function takes an endpoint and an object, converts the object to a pretty-printed JSON string,
+ * and logs it using the `logger.info` method, prefixed with the endpoint.
  *
+ * @param {string} endpoint - The endpoint associated with the API response.
  * @param {object} apiResponseData - The API response data to be logged.
  * @returns {object} The result of the logger.info method call.
  */
-export const logInfoJsonStringify = (apiResponseData: object): object => {
+export const logInfoJsonStringify = (
+  endpoint: string,
+  apiResponseData: object,
+): object => {
   return logger.info(
-    `--- Devices: ${JSON.stringify(apiResponseData, null, 2)}`,
+    `--- ${endpoint}: ${JSON.stringify(apiResponseData, null, 2)}`,
   );
 };

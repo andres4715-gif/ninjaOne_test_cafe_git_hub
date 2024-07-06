@@ -17,5 +17,5 @@ test("Make an API call to retrieve the list of devices", async (tc) => {
   const response = await axios.get(`${baseUrl}${endpoints.devices}`);
   await tc.expect(response.status).eql(200, "--- API call failed");
   const responseDevices = response.data;
-  logInfoJsonStringify(responseDevices);
+  logInfoJsonStringify(endpoints.devices, responseDevices);
 });

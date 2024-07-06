@@ -21,8 +21,11 @@ test("Make an API call to retrieve the list of devices", async (t) => {
   const responseDevices = response.data;
   logInfoJsonStringify(endpoints.devices, responseDevices);
   verifyTypeOfArray(t, endpoints.devices, responseDevices);
+
+  logger.info("--- Interac with the object");
+  console.log("****** 0", responseDevices[0]);
+  console.log("****** 1", responseDevices[1]);
+  console.log("****** 2", responseDevices[2]);
 });
 
-test("Verify list of devices to check the elements are visible in the DOM", async () => {
-  logger.info("----------------");
-});
+// todo check the return to get values of variables.

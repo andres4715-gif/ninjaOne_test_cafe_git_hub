@@ -1,4 +1,6 @@
 import logger from "../../utils/logger";
+import { t } from "testcafe";
+import { DeviceRefined } from "../../types/deviceTypes";
 
 /**
  * Verifies that the provided API response data is an array.
@@ -13,7 +15,6 @@ import logger from "../../utils/logger";
  * @returns {Promise<void>} A promise that resolves when the verification and logging are complete.
  */
 export const verifyTypeOfArray = async (
-  t: TestController,
   endpoint: string,
   apiResponseData: object,
 ): Promise<void> => {
@@ -21,4 +22,24 @@ export const verifyTypeOfArray = async (
     .expect(Array.isArray(apiResponseData))
     .ok(`The ${endpoint} response data is not an array`);
   logger.info("--- SUCCESS: Data obtained is an array");
+};
+
+/**
+ * Asserts that the sorted API data matches the sorted UI data.
+ *
+ * This function checks if the sorted API data is equal to the sorted UI data
+ * and throws an error if they do not match. If the data matches, it logs a success message.
+ *
+ * @param {any[]} sortedApiData - The sorted data obtained from the API.
+ * @param {any[]} sortedUiData - The sorted data obtained from the UI.
+ * @returns {Promise<void>} A promise that resolves when the assertion and logging are complete.
+ */
+export const assertDataEquality = async (
+  sortedApiData: DeviceRefined[],
+  sortedUiData: DeviceRefined[],
+): Promise<void> => {
+  await t
+    .expect(sortedApiData)
+    .eql(sortedUiData, "API and UI data do not match");
+  logger.info("--- The compared data are equal");
 };

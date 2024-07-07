@@ -170,6 +170,8 @@ Update .eslintrc.json:
 - [ ] Check the final env variables and clean it
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
+- [ ] Remove this method: newRandomString if it is not used
+- [ ] Fix the logInfoJsonStringify if remove the final string send a undefined value
 
 # FRAMEWORK TASK DONE
 - [X] Run the initial base script

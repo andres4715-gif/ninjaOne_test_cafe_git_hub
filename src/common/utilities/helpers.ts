@@ -28,19 +28,10 @@ export const generateRandomString = (length: number): string => {
  */
 export const logInfoJsonStringify = (
   comeFrom: string,
-  endpoint: string,
   apiResponseData: object,
+  endpoint?: string,
 ): object => {
   return logger.info(
-    `--- Obtained data from ${comeFrom} ${endpoint}: ${JSON.stringify(apiResponseData, null, 2)}`,
-  );
-};
-
-export const logInfoJsonStringifyFromUi = (
-  comeFrom: string,
-  apiResponseData: object,
-): object => {
-  return logger.info(
-    `--- Obtained data from ${comeFrom}: ${JSON.stringify(apiResponseData, null, 2)}`,
+    `--- Refined Obtained data from ${comeFrom} ${endpoint}: ${JSON.stringify(apiResponseData, null, 2)}`,
   );
 };

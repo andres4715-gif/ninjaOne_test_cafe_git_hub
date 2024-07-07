@@ -4,3 +4,9 @@ export interface Device {
   type: string;
   hdd_capacity: string;
 }
+
+export interface DeviceRefined {
+  system_name: string;
+  type: string;
+  hdd_capacity: string;
+}

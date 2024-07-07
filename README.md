@@ -76,24 +76,6 @@ NOTE: Just open this file: reports/test-report.html using any available browser 
 Besides you would see the fail execution screenshots each fail execution in this folder: ./reports/screenshots
 ___
 
-# Github Actions: 
-
-This TestCafe framework executes a github Action each push and pull request to master branch 
-
-* Setup: Check this file: .github/workflows/node.js.yml
-
-```YAML
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-```
-Besides is possible to download the final report on the Artifacts section after a success execution. 
-___
-
 # Logger: Winston Logging in Node.js
 
 

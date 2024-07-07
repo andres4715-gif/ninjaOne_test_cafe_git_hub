@@ -14,81 +14,49 @@ This is a TestCafe automation testing framework using TypeScript. It is set up t
 - Node.js (You can download it from [here](https://nodejs.org/))
 - npm (comes with Node.js)
 
-## Setup
+# Initial steps to run the services(Backend) and UI(Frontend):
 
-1. **Clone the repository:**
-   ```shell
-   $ git clone https://github.com/andres4715-gif/ninjaOne_test_cafe_git_hub.git
-   $ cd testcafe-typescript-framework
-   $ npm install
-   ```
-Usage
-Compile TypeScript code
-To compile the TypeScript code, run:
+## Run the backend services: 
 ```shell
-$ npm run build
+- Step 1: Open a new terminal
+- Step 2: $ Clone de repository: https://github.com/NinjaRMM/devicesTask_serverApp
+- Step 3: $ npm install
+- Step 4: $ npm start
+- Step 5: Leave this running 
 ```
 
-## Run Tests
+## Run the frontend: 
+```shell
+- Step 1: Open a new terminal
+- Step 2: $ Clone de repository: https://github.com/Yastrenky/devices-clientapp
+- Step 3: $ npm install
+- Step 4: $ npm start
+- Step 5: Leave this running 
+```
+
+## Run the TestCafe automation: 
+```shell
+- Step 1: Open a new terminal
+- Step 2: $ Clone de repository: https://github.com/andres4715-gif/ninjaOne_test_cafe_git_hub.git
+- Step 4: $ cd testcafe-typescript-framework
+- Step 3: $ npm install
+```
+
+
+## Running the NPM Scripts:
 ```shell
 - Quick execution: 
-$ npm run test
-
-- Run specific script: (Take in mind, you would need to add the JavaScript code from dist folder)
-
-* Example: 
-$ npx testcafe chrome dist/tests/exampleTest.js
-
-- Using tsc --watch real time TypeScript validation
-$ npm run watch
-
-- In another terminal tap run the test cases: 
-* Example: 
 $ npm run watch
 $ npm run test
-```
 
-This will:
+- This will:
 
 1. Compile the TypeScript code using the build script.
 2. Run the tests in TestCafe using the compiled JavaScript files.
-
-Example Test
-The following is an example test located in src/tests/exampleTest.ts:
-
-```javascript
-import { Selector } from 'testcafe';
-import examplePage from '../pages/examplePage';
-
-fixture `Example Fixture`
-    .page `https://example.com`;
-
-test('Example Test', async t => {
-    await t
-        .expect(examplePage.exampleElement.exists).ok();
-});
-
 ```
-
-Example Page Object
-The following is an example page object located in src/pages/examplePage.ts:
-
-```javascript
-import { Selector } from 'testcafe';
-
-class ExamplePage {
-    exampleElement: Selector;
-
-    constructor() {
-        this.exampleElement = Selector('#example');
-    }
-}
-
-export default new ExamplePage();
-
-```
-
+___
 # Reports: 
+
 > NPM PACKAGE:  "testcafe-reporter-html": "^1.4.6",
 
 To get the final execution report just run this npm script. 
@@ -202,6 +170,8 @@ Update .eslintrc.json:
 - [ ] Check the final env variables and clean it
 - [ ] Create hooks to run the scripts
 - [ ] Remove the basic and demo initial script
+- [ ] Remove this method: newRandomString if it is not used
+- [ ] Fix the logInfoJsonStringify if remove the final string send a undefined value
 
 # FRAMEWORK TASK DONE
 - [X] Run the initial base script

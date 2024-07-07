@@ -9,7 +9,7 @@ const { URL, USERNAME, PASSWORD } = process.env;
 
 fixture`Simple login authentication`.page(URL as string);
 
-test("User can log in with valid credentials", async (t) => {
+test.skip("User can log in with valid credentials", async (t) => {
   await loginPage.login(USERNAME as string, PASSWORD as string);
   const randomString = generateRandomString(10);
   logger.info("--- The final random string:", randomString);

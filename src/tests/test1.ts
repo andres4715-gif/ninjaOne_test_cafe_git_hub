@@ -1,5 +1,8 @@
 import "../utils/setup";
-import { logInfoJsonStringify } from "../common/utilities/helpers";
+import {
+  logInfoJsonStringify,
+  logInfoJsonStringifyFromUi,
+} from "../common/utilities/helpers";
 import { verifyTypeOfArray } from "../common/utilities/assertions";
 import axios from "axios";
 // import logger from "../utils/logger";
@@ -34,7 +37,7 @@ test("Make an API call to retrieve the list of devices", async (t) => {
     .count.then((count) =>
       Promise.all(
         Array.from({ length: count }).map(async (_, i) => ({
-          name: await deviceNameUi
+          system_name: await deviceNameUi
             .nth(i)
             .find(".device-name")
             .with({ boundTestRun: t }).innerText,
@@ -42,7 +45,7 @@ test("Make an API call to retrieve the list of devices", async (t) => {
             .nth(i)
             .find(".device-type")
             .with({ boundTestRun: t }).innerText,
-          capacity: await deviceNameUi
+          hdd_capacity: await deviceNameUi
             .nth(i)
             .find(".device-capacity")
             .with({ boundTestRun: t }).innerText,
@@ -50,5 +53,5 @@ test("Make an API call to retrieve the list of devices", async (t) => {
       ),
     );
 
-  console.log("--- Device Infos: ", deviceInfos);
+  logInfoJsonStringifyFromUi("UI", deviceInfos);
 });

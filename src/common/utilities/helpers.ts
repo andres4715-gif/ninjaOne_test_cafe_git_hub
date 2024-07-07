@@ -34,3 +34,12 @@ export const logInfoJsonStringify = (
     `--- ${endpoint}: ${JSON.stringify(apiResponseData, null, 2)}`,
   );
 };
+
+export const logInfoJsonStringifyFromUi = (
+  comeFrom: string,
+  apiResponseData: object,
+): object => {
+  return logger.info(
+    `--- Obtained data from: ${comeFrom}: ${JSON.stringify(apiResponseData, null, 2)}`,
+  );
+};

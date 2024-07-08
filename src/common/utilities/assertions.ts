@@ -1,6 +1,6 @@
 import logger from "../../utils/logger";
 import { t } from "testcafe";
-import { DeviceRefined } from "../../types/deviceTypes";
+import { Device, DeviceRefined } from "../../types/deviceTypes";
 
 /**
  * Verifies that the provided API response data is an array.
@@ -21,7 +21,9 @@ export const verifyTypeOfArray = async (
   await t
     .expect(Array.isArray(apiResponseData))
     .ok(`The ${endpoint} response data is not an array`);
-  logger.info("--- SUCCESS: Data obtained is an array");
+  logger.info(
+    `--- SUCCESS: Data obtained from API ${endpoint} call is an array`,
+  );
 };
 
 /**
@@ -42,4 +44,23 @@ export const assertDataEquality = async (
     .expect(sortedApiData)
     .eql(sortedUiData, "API and UI data do not match");
   logger.info("--- The compared data are equal");
+};
+
+/**
+ * Asserts that the obtained device data from the API is not empty.
+ * Logs the number of devices obtained from the API call if the array is not empty.
+ *
+ * @param obtainedDeviceData - The array of `Device` objects obtained from the API.
+ * @param endpoint - The endpoint of the API call that was used to retrieve the data.
+ */
+export const assertObtainedDataFromApiNotEmpty = async (
+  obtainedDeviceData: Device[],
+  endpoint: string,
+): Promise<void> => {
+  await t
+    .expect(obtainedDeviceData.length)
+    .gt(0, `--- API ${endpoint} call returned an empty array`);
+  logger.info(
+    `--- API ${endpoint} call returned data with ${obtainedDeviceData.length} ${endpoint}`,
+  );
 };

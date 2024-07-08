@@ -1,7 +1,7 @@
 import { Selector } from "testcafe";
 
-const homeSelectors = {
-  device_name: Selector(".device-info"),
+export const homeSelectors = {
+  device_info: Selector(".device-info"),
   device_option: Selector("[class='device-options']"),
 };
 

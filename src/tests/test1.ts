@@ -3,6 +3,7 @@ import { logInfoJsonStringify } from "../common/utilities/helpers";
 import {
   verifyTypeOfArray,
   assertDataEquality,
+  assertObtainedDataFromApiNotEmpty,
 } from "../common/utilities/assertions";
 import axios from "axios";
 import { Device } from "../types/deviceTypes";
@@ -20,23 +21,25 @@ const endpoints = {
 };
 
 fixture`Test 1`.page(url);
-
 test("Make an API call to retrieve the list of devices and compare with UI", async (t) => {
   // Fetch data from API
-  const response = await axios.get<Device[]>(`${baseUrl}${endpoints.devices}`);
-  await t.expect(response.status).eql(200, "--- API call failed");
-  const responseDevices: Device[] = response.data;
+  const getDevices = await axios.get<Device[]>(
+    `${baseUrl}${endpoints.devices}`,
+  );
+  await t.expect(getDevices.status).eql(200, "--- API call failed");
+  const responseDevices: Device[] = getDevices.data;
   verifyTypeOfArray(endpoints.devices, responseDevices);
+  assertObtainedDataFromApiNotEmpty(responseDevices, endpoints.devices);
 
-  // Simplify the API response data
+  // Simplify the API response data removing the id value.
   const finalDeviceDataFromService = responseDevices.map(
-    ({ id, ...rest }) => rest
+    ({ id, ...rest }) => rest,
   );
 
   // Fetch data from UI
-  const deviceNameUi: Selector = homeSelectors.device_name;
+  const deviceInfoUi: Selector = homeSelectors.device_info;
   const deviceOptionUi: Selector = homeSelectors.device_option;
-  const deviceInfos = await deviceNameUi
+  const deviceInfos = await deviceInfoUi
     .with({ boundTestRun: t })
     .count.then((count) =>
       Promise.all(
@@ -52,15 +55,15 @@ test("Make an API call to retrieve the list of devices and compare with UI", asy
 
           return {
             // Extract data
-            system_name: await deviceNameUi
+            system_name: await deviceInfoUi
               .nth(i)
               .find(".device-name")
               .with({ boundTestRun: t }).innerText,
-            type: await deviceNameUi
+            type: await deviceInfoUi
               .nth(i)
               .find(".device-type")
               .with({ boundTestRun: t }).innerText,
-            hdd_capacity: await deviceNameUi
+            hdd_capacity: await deviceInfoUi
               .nth(i)
               .find(".device-capacity")
               .with({ boundTestRun: t }).innerText,

@@ -5,7 +5,7 @@ import {
   assertDataEquality,
   assertObtainedDataFromApiNotEmpty,
 } from "../common/utilities/assertions";
-import ButtonChecker from "../pages/homePage";
+import HomePage from "../pages/homePage";
 import axios from "axios";
 import { Device } from "../types/deviceTypes";
 import homeSelectors from "../selectors/homeSelectors";
@@ -103,12 +103,8 @@ test("Make an API call to retrieve the list of devices and compare with UI", asy
 
   // Verify that all devices in the UI has the edit and Remove buttons
   for (const [index, deviceInfo] of deviceInfos.entries()) {
-    await ButtonChecker.checkButtonPresence(
-      deviceInfo.hasEditButton,
-      "edit",
-      index,
-    );
-    await ButtonChecker.checkButtonPresence(
+    await HomePage.checkButtonPresence(deviceInfo.hasEditButton, "edit", index);
+    await HomePage.checkButtonPresence(
       deviceInfo.hasRemoveButton,
       "remove",
       index,

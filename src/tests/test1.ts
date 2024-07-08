@@ -5,10 +5,10 @@ import {
   assertDataEquality,
   assertObtainedDataFromApiNotEmpty,
 } from "../common/utilities/assertions";
+import ButtonChecker from "../pages/homePage";
 import axios from "axios";
 import { Device } from "../types/deviceTypes";
 import homeSelectors from "../selectors/homeSelectors";
-import logger from "../utils/logger";
 
 // env variables destructuring
 const { URL, BASEURL } = process.env;
@@ -33,12 +33,13 @@ test("Make an API call to retrieve the list of devices and compare with UI", asy
 
   // Simplify the API response data removing the id value.
   const finalDeviceDataFromService = responseDevices.map(
-    ({ id, ...rest }) => rest,
+    ({ id, ...rest }) => rest
   );
 
   // Fetch data from UI
   const deviceInfoUi: Selector = homeSelectors.device_info;
   const deviceOptionUi: Selector = homeSelectors.device_option;
+
   const deviceInfos = await deviceInfoUi
     .with({ boundTestRun: t })
     .count.then((count) =>
@@ -46,26 +47,26 @@ test("Make an API call to retrieve the list of devices and compare with UI", asy
         Array.from({ length: count }).map(async (_, i) => {
           const hasEditButton = await deviceOptionUi
             .nth(i)
-            .find('[class="device-edit"]')
+            .find(homeSelectors.homePageEditDeviceButton)
             .with({ boundTestRun: t }).exists;
           const hasRemoveButton = await deviceOptionUi
             .nth(i)
-            .find('[class="device-remove"]')
+            .find(homeSelectors.homePageRemoveDeviceButton)
             .with({ boundTestRun: t }).exists;
 
           return {
             // Extract data
             system_name: await deviceInfoUi
               .nth(i)
-              .find(".device-name")
+              .find(homeSelectors.homePageDeviceName)
               .with({ boundTestRun: t }).innerText,
             type: await deviceInfoUi
               .nth(i)
-              .find(".device-type")
+              .find(homeSelectors.homePageDeviceType)
               .with({ boundTestRun: t }).innerText,
             hdd_capacity: await deviceInfoUi
               .nth(i)
-              .find(".device-capacity")
+              .find(homeSelectors.homePageDeviceCapacity)
               .with({ boundTestRun: t }).innerText,
             // Validate buttons
             hasEditButton,
@@ -85,6 +86,7 @@ test("Make an API call to retrieve the list of devices and compare with UI", asy
   );
 
   // Sort both arrays by system_name to ensure order doesn't affect comparison
+  // localeCompare is used to sort objects in the end array DeviceDataFromUI by the system_name property alphabetically.
   const sortedApiData = finalDeviceDataFromService.sort((a, b) =>
     a.system_name.localeCompare(b.system_name),
   );
@@ -99,15 +101,17 @@ test("Make an API call to retrieve the list of devices and compare with UI", asy
   logInfoJsonStringify("API", sortedApiData, endpoints.devices);
   logInfoJsonStringify("UI", sortedUiData, "");
 
-  // Verify that all devices in the UI have the required buttons
+  // Verify that all devices in the UI has the edit and Remove buttons
   for (const [index, deviceInfo] of deviceInfos.entries()) {
-    await t
-      .expect(deviceInfo.hasEditButton)
-      .ok(`Device at index ${index} does not have an edit button`);
-    logger.info(`Device at index ${index} has the edit button displayed"`);
-    await t
-      .expect(deviceInfo.hasRemoveButton)
-      .ok(`Device at index ${index} does not have a remove button`);
-    logger.info(`Device at index ${index} has the Remove button displayed"`);
+    await ButtonChecker.checkButtonPresence(
+      deviceInfo.hasEditButton,
+      "edit",
+      index,
+    );
+    await ButtonChecker.checkButtonPresence(
+      deviceInfo.hasRemoveButton,
+      "remove",
+      index,
+    );
   }
 });

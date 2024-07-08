@@ -1,8 +1,14 @@
-// utils/ButtonChecker.ts
 import { t } from "testcafe";
 import logger from "../utils/logger";
 
-class ButtonChecker {
+class HomePage {
+  /**
+   * Asynchronously checks the presence of a specified button on a device and logs the result.
+   *
+   * @param {boolean} buttonCheck - A boolean indicating if the button is present.
+   * @param {string} buttonType - A string representing the type of button being checked (e.g., "edit", "remove").
+   * @param {number} index - The index of the device being checked in the list.
+   */
   async checkButtonPresence(
     buttonCheck: boolean,
     buttonType: string,
@@ -17,4 +23,4 @@ class ButtonChecker {
   }
 }
 
-export default new ButtonChecker();
+export default new HomePage();

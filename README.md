@@ -168,7 +168,6 @@ Update .eslintrc.json:
 - [X] Fix scripts test name on the reports
 - [X] Verify the testcafe-reporter.ts functionality and remove it if needed
 - [X] Create new readme version file adding documentation for reports
-- [X] Create new readme version file adding documentation for github actions
 - [X] Install npm package to handle logs
 - [X] Create new readme version file adding documentation for logs
 

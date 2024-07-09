@@ -148,12 +148,8 @@ Update .eslintrc.json:
 ```
 
 # TO DO:
+👌
 
-- [ ] Check the final env variables and clean it
-- [ ] Create hooks to run the scripts
-- [ ] Remove the basic and demo initial script
-- [ ] Remove this method: newRandomString if it is not used
-- [ ] Fix the logInfoJsonStringify if remove the final string send a undefined value
 
 # FRAMEWORK TASK DONE
 - [X] Run the initial base script
@@ -178,3 +174,5 @@ Update .eslintrc.json:
 
 # SCRIPTS TASK DONE
 - [X] Check the best practice to work with separate locators file
+- [X] Check the final env variables and clean it
+- [X] Remove the basic and demo initial script

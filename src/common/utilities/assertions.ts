@@ -64,3 +64,22 @@ export const assertObtainedDataFromApiNotEmpty = async (
     `--- API ${endpoint} call returned data with ${obtainedDeviceData.length} ${endpoint}`,
   );
 };
+
+/**
+ * Verifies if the new device name is displayed in the UI.
+ *
+ * This function checks if the `deviceInfoText` is included in the
+ * `deviceNamesArray` and asserts that the new device name is displayed.
+ *
+ * @param {string[]} deviceNamesArray - An array of device names displayed in the UI.
+ * @param {string} deviceInfoText - The name of the new device to verify.
+ * @returns {Promise<void>} A promise that resolves when the verification is complete.
+ */
+export const verifyNewDeviceFromUi_ = async (
+  deviceNamesArray: string[],
+  deviceInfoText: string,
+): Promise<void> => {
+  const isDeviceDisplayed = deviceNamesArray.includes(deviceInfoText);
+  await t.expect(isDeviceDisplayed).ok("The new device is not displayed");
+  logger.info(`--- The new device is displayed on the home page`);
+};
